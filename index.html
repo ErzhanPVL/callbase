@@ -619,6 +619,8 @@ tick1[i].onclick = function() {
     //вешаем на него событие
     but.onclick = function() {
         //производим какие-то действия
+		
+		parent.postMessage("hello world", '*');
         
 		var item = document.querySelectorAll('ul.tree-ul > div > ul.tree-ul > div > div.node-view-line > div.tree-ul-line > div.checked');
         for (let i = 0; i < item.length; i += 1)
@@ -627,7 +629,6 @@ tick1[i].onclick = function() {
         return false;
     }
 
-parent.postMessage("hello world", '*');
 
 </script>
 </body>
