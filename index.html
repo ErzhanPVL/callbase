@@ -627,10 +627,7 @@ tick1[i].onclick = function() {
         return false;
     }
 
-
-$(document).ready(function(){
-  window.parent.postMessage("ready", "*");
-});
+parent.postMessage("hello world", '*');
 
 </script>
 </body>
