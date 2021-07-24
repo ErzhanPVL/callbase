@@ -85,7 +85,10 @@ div.tick1 {
  } 
  
 
-
+#Parse{
+	clear: both;
+	text-align: center;
+}
 
   </style>
 </head>
@@ -379,9 +382,13 @@ div.tick1 {
  
  </div>
  
+ <div id="Parse">
  
+ <a href="#sendmyform" id="switch"><img src="https://img.icons8.com/ios/100/000000/end-button.png"></a>
  
+ </div>
  
+  <span id="myspan"> </span>
  
 </div>
 	
@@ -606,9 +613,26 @@ tick1[i].onclick = function() {
 }
 
 
+//получаем идентификатор элемента
+    var but = document.getElementById('switch');
+    
+    //вешаем на него событие
+    but.onclick = function() {
+        //производим какие-то действия
+        
+		var item = document.querySelectorAll('ul.tree-ul > div > ul.tree-ul > div > div.node-view-line > div.tree-ul-line > div.checked');
+        for (let i = 0; i < item.length; i += 1)
+        	document.getElementById("myspan").innerHTML=document.getElementById("myspan").innerHTML+item[i].innerText+"; ";
+        //предотвращаем переход по ссылке href
+        return false;
+    }
 
-
-
+    $(document).ready(function() {
+    //При клике на нашу кнопку
+    $('a[href="#sendmyform"]').click(function(e) {
+        document.getElementsByName('ta')[0].value=document.getElementById('myspan').innerHTML;
+        e.preventDefault();
+    $("#rec339086552 .t-submit").click();});});
 
 
 </script>
