@@ -90,6 +90,14 @@ div.tick1 {
 	text-align: center;
 }
 
+#myspan{
+	display:none;
+}
+
+#myspan2{
+	display:none;
+}
+
   </style>
 </head>
 
@@ -389,6 +397,8 @@ div.tick1 {
  </div>
  
   <span id="myspan"> </span>
+  <br>
+  <span id="myspan2"> </span>
  
 </div>
 	
@@ -620,12 +630,19 @@ tick1[i].onclick = function() {
     but.onclick = function() {
         //производим какие-то действия
 		
-        
+        document.getElementById("myspan").innerHTML="Города:";
 		var item = document.querySelectorAll('ul.tree-ul > div > ul.tree-ul > div > div.node-view-line > div.tree-ul-line > div.checked');
         for (let i = 0; i < item.length; i += 1)
         	document.getElementById("myspan").innerHTML=document.getElementById("myspan").innerHTML+item[i].innerText+"; ";
+			
+			
+		document.getElementById("myspan2").innerHTML="Организации:";
+		var item = document.querySelectorAll('ul.tree-ul-tree-ul-root > div > ul.tree-ul > div > div.node-view-line > div.tree-ul-line > div.checked');
+        for (let i = 0; i < item.length; i += 1)
+        	document.getElementById("myspan2").innerHTML=document.getElementById("myspan2").innerHTML+item[i].innerText+"; ";
         
-		parent.postMessage(document.getElementById("myspan").innerHTML, '*');
+		var messageCRM = document.getElementById("myspan").innerHTML + '.' + document.getElementById("myspan2").innerHTML;
+		parent.postMessage(messageCRM, '*');
 		
     }
 
