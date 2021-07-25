@@ -639,12 +639,17 @@ tick1[i].onclick = function() {
         for (let i = 0; i < item.length; i += 1)
         	document.getElementById("myspan").innerHTML=document.getElementById("myspan").innerHTML+item[i].innerText+"; ";
 			
-			
+		if(item.length == 1111){
+			document.getElementById("myspan").innerHTML="Россия";
+		}
 		document.getElementById("myspan2").innerHTML="Организации:";
 		var item = document.querySelectorAll('ul.tree-ul-tree-ul-root > div > ul.tree-ul > div > div.node-view-line > div.tree-ul-line > div.checked');
         for (let i = 0; i < item.length; i += 1)
         	document.getElementById("myspan2").innerHTML=document.getElementById("myspan2").innerHTML+item[i].innerText+"; ";
         
+		if(item.length == 2059){
+			document.getElementById("myspan2").innerHTML="Все организации";
+		};
 		var messageCRM = document.getElementById("myspan").innerHTML + '.' + document.getElementById("myspan2").innerHTML;
 		parent.postMessage(messageCRM, '*');
 		
